@@ -1,12 +1,20 @@
+/file remove [find type=directory]
+/ip smb shares add name=Backup directory=Backup
+/ip smb shares add name=log directory=log
+/ip smb shares add name=VPN directory=VPN
+/tool fetch url="https://github.com/elaouby/elaouby.github.io/blob/main/MT/nordvpn.der" dst-path=VPN/nordvpn.der
+/tool fetch url="https://github.com/elaouby/elaouby.github.io/blob/main/MT/protonvpn.der" dst-path=VPN/protonvpn.der
+/tool fetch url="https://github.com/elaouby/elaouby.github.io/blob/main/MT/config.rsc" dst-path=Backup/config.rsc
+/tool fetch url="https://github.com/elaouby/elaouby.github.io/blob/main/MT/dhcp-client.rsc" dst-path=Backup/dhcp-client.rsc
 /system logging action
-add disk-file-name=log-critical disk-lines-per-file=65535 name=critical target=disk
-add disk-file-name=log-debug disk-lines-per-file=65535 name=debug target=disk
-add disk-file-name=log-error disk-lines-per-file=65535 name=error target=disk
-add disk-file-name=log-info disk-lines-per-file=65535 name=info target=disk
-add disk-file-name=log-ipsec disk-lines-per-file=65535 name=ipsec target=disk
-add disk-file-name=log-system disk-lines-per-file=65535 name=system target=disk
-add disk-file-name=log-warning disk-lines-per-file=65535 name=warning target=disk
-add disk-file-name=log-wireguard disk-lines-per-file=65535 name=wireguard target=disk
+add disk-file-name=log/log-critical disk-lines-per-file=65535 name=critical target=disk
+add disk-file-name=log/log-debug disk-lines-per-file=65535 name=debug target=disk
+add disk-file-name=log/log-error disk-lines-per-file=65535 name=error target=disk
+add disk-file-name=log/log-info disk-lines-per-file=65535 name=info target=disk
+add disk-file-name=log/log-ipsec disk-lines-per-file=65535 name=ipsec target=disk
+add disk-file-name=log/log-system disk-lines-per-file=65535 name=system target=disk
+add disk-file-name=log/log-warning disk-lines-per-file=65535 name=warning target=disk
+add disk-file-name=log/log-wireguard disk-lines-per-file=65535 name=wireguard target=disk
 /system logging
 add action=critical topics=critical
 add action=debug topics=debug,!packet
