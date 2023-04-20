@@ -122,23 +122,23 @@
 /system ntp client set enabled=yes
 /system ntp client servers add address=216.239.35.0
 /system ntp client servers add address=216.239.35.4
-/certificate import file-name=usb1-part1/VPN/nordvpn.der name=NordVPN passphrase=""
-/certificate import file-name=usb1-part1/VPN/protonvpn.der name=ProtonVPN passphrase=""
-/ip ipsec profile add name=NordVPN
-/ip ipsec profile add dh-group=modp4096,modp2048,modp1024 dpd-interval=disable-dpd enc-algorithm=aes-256 hash-algorithm=sha256 name=ProtonVPN
-/ip ipsec proposal add name=NordVPN pfs-group=none
-/ip ipsec proposal add auth-algorithms=sha256 enc-algorithms=aes-256-cbc lifetime=0s name=ProtonVPN pfs-group=none
-/ip ipsec policy group add name=NordVPN
-/ip ipsec policy group add name=ProtonVPN
-/ip ipsec policy add dst-address=0.0.0.0/0 group=NordVPN proposal=NordVPN src-address=0.0.0.0/0 template=yes
-/ip ipsec policy add dst-address=0.0.0.0/0 group=ProtonVPN proposal=ProtonVPN src-address=0.0.0.0/0 template=yes
-/ip ipsec mode-config add name=NordVPN responder=no src-address-list=vpn
-/ip ipsec mode-config add connection-mark=vpn name=ProtonVPN responder=no src-address-list=vpn
-/ip ipsec peer add address=ch412.nordvpn.com exchange-mode=ike2 name=NordVPN profile=NordVPN
-/ip ipsec peer add address=nl-free-112.protonvpn.net exchange-mode=ike2 name=ProtonVPN profile=ProtonVPN
-/ip ipsec identity add auth-method=eap certificate=NordVPN eap-methods=eap-mschapv2 generate-policy=port-strict mode-config=NordVPN peer=NordVPN policy-template-group=NordVPN username=xxxx password=xxxx
-/ip ipsec identity add auth-method=eap certificate=ProtonVPN eap-methods=eap-mschapv2 generate-policy=port-strict mode-config=ProtonVPN peer=ProtonVPN policy-template-group=ProtonVPN username=xxxx password=xxxx
-/user add name=elaouby group=full password=xxxx
+/certificate import file-name="usb1-part1/VPN/nordvpn.der" name=NordVPN passphrase=""
+/certificate import file-name="usb1-part1/VPN/protonvpn.der" name=ProtonVPN passphrase=""
+/ip ipsec profile add name="NordVPN"
+/ip ipsec profile add dh-group=modp4096,modp2048,modp1024 dpd-interval=disable-dpd enc-algorithm=aes-256 hash-algorithm=sha256 name="ProtonVPN"
+/ip ipsec proposal add name="NordVPN" pfs-group=none
+/ip ipsec proposal add auth-algorithms=sha256 enc-algorithms=aes-256-cbc lifetime=0s name="ProtonVPN" pfs-group=none
+/ip ipsec policy group add name="NordVPN"
+/ip ipsec policy group add name=æProtonVPN"
+/ip ipsec policy add dst-address=0.0.0.0/0 group="NordVPN" proposal="NordVPN" src-address=0.0.0.0/0 template=yes
+/ip ipsec policy add dst-address=0.0.0.0/0 group="ProtonVPN" proposal="ProtonVPN" src-address=0.0.0.0/0 template=yes
+/ip ipsec mode-config add name="NordVPN" responder=no src-address-list=vpn
+/ip ipsec mode-config add connection-mark=vpn name="ProtonVPN" responder=no src-address-list=vpn
+/ip ipsec peer add address=ch412.nordvpn.com exchange-mode=ike2 name="NordVPN" profile="NordVPN"
+/ip ipsec peer add address=nl-free-112.protonvpn.net exchange-mode=ike2 name="ProtonVPN" profile="ProtonVPN"
+/ip ipsec identity add auth-method=eap certificate="NordVPN" eap-methods=eap-mschapv2 generate-policy=port-strict mode-config="NordVPN" peer="NordVPN" policy-template-group="NordVPN" username=xxxx password=xxxx
+/ip ipsec identity add auth-method=eap certificate="ProtonVPN" eap-methods=eap-mschapv2 generate-policy=port-strict mode-config="ProtonVPN" peer="ProtonVPN" policy-template-group="ProtonVPN" username=xxxx password=xxxx
+/user add name=elaouby group=full password=Ae29181801274!
 /user remove admin
 /system scheduler add interval=1d name=Reboot on-event="/system reboot" policy=reboot start-date=jan/01/1970 start-time=06:00:00
 /system identity set name=MikroTik-hAP-ac^3
