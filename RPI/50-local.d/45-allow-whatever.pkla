@@ -1,6 +1,0 @@
-[Allow me to do whatever I want as long as Im logged in as me]
-Identity=unix-user:*
-Action=*
-ResultAny=yes
-ResultInactive=yes
-ResultActive=yes
